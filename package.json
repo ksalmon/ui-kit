@@ -1,5 +1,5 @@
 {
-  "name": "ui-kit",
+  "name": "@raygun-playground/ui",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/ui-kit.js",
