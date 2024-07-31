@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import FileTreeBrowser from ".";
 
 const defaultData = [
@@ -14,24 +15,24 @@ const defaultData = [
           {
             value: "prop1",
             title: "prop1",
-            onClick: () => console.log("redirect to prop1"),
+            onClick: action("redirect to prop1"),
           },
           {
             value: "prop2",
             title: "prop2",
-            onClick: () => console.log("redirect to prop2"),
+            onClick: action("redirect to prop2"),
           },
           {
             value: "prop3",
             title: "prop3",
-            onClick: () => console.log("redirect to prop3"),
+            onClick: action("redirect to prop3"),
             children: [
               {
                 value: "deepprop1",
                 title: "deepprop1",
-                onClick: () => console.log("redirect to prop1"),
+                onClick: action("redirect to prop1"),
               },
-            ]
+            ],
           },
         ],
       },
@@ -44,7 +45,7 @@ const defaultData = [
       { value: "leaf1", title: "leaf1" },
       { value: "leaf2", title: "leaf2" },
     ],
-  }
+  },
 ];
 
 const meta = {
@@ -55,7 +56,7 @@ const meta = {
     layout: "fullscreen",
   },
   args: {
-    onChange: (value: string) => console.log("Interacted with: ", value),
+    onChange: action("onChange"),
     data: defaultData,
   },
 } satisfies Meta<typeof FileTreeBrowser>;
@@ -65,7 +66,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onChange: (value: string) => console.log("Interacted with: ", value),
+    onChange: action("onChange"),
     data: defaultData,
   },
 };
