@@ -1,0 +1,39 @@
+name: NPM publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          registry-url: https://registry.npmjs.org/
+
+      - run: npm ci
+      - run: git config --global user.name "Kyle Salmon"
+      - run: git config --global user.email "kyleraysalmon@gmail.com"
+
+      # upgrade npm version in package.json to the tag used in the release.
+      - run: npm version ${{ github.event.release.tag_name }}
+      - run: npm run build
+      - run: npm publish --tag ${{ github.event.release.target_commitish }}
+        env:
+          # Use a token to publish to NPM. See below for how to set it up
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
+
+      - run: npm dist-tag add @raygun-playground/ui@${{ github.event.release.tag_name }} latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
+
+      - run: git push
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
