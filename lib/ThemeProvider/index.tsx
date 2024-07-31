@@ -51,3 +51,5 @@ export const UIThemeProvider = ({ children, themeOverride }: Props) => (
     {children}
   </ThemeProvider>
 );
+
+export default UIThemeProvider;
