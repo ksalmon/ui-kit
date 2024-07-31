@@ -1,2 +1,1 @@
-build: tsc -b && storybook build
-web: http-server storybook-static
+web: storybook build && http-server storybook-static
