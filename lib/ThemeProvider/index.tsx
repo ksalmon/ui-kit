@@ -23,7 +23,7 @@ type Props = {
   themeOverride: Theme;
 };
 
-export const UIThemeProvider = ({ children, themeOverride = {} }: Props) => (
+export const UIThemeProvider = ({ children, themeOverride }: Props) => (
   <ThemeProvider theme={{ ...theme, ...themeOverride }}>
     <Global
       styles={css`
