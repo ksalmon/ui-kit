@@ -22,4 +22,5 @@ The FileTreeBrowser component is fairly simple with some small animations using 
 
 ### Todo's
 - Specs in Cypress and/or Jest
+- Add Eslint Configuration
 - Add more design tokens to the ThemeProvider and pass to the existing components
