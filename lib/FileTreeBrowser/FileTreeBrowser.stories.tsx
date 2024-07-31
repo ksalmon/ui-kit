@@ -14,12 +14,37 @@ const defaultData = [
           {
             value: "prop1",
             title: "prop1",
-            onClick: () => console.log("redirect to leaf2"),
+            onClick: () => console.log("redirect to prop1"),
+          },
+          {
+            value: "prop2",
+            title: "prop2",
+            onClick: () => console.log("redirect to prop2"),
+          },
+          {
+            value: "prop3",
+            title: "prop3",
+            onClick: () => console.log("redirect to prop3"),
+            children: [
+              {
+                value: "deepprop1",
+                title: "deepprop1",
+                onClick: () => console.log("redirect to prop1"),
+              },
+            ]
           },
         ],
       },
     ],
   },
+  {
+    value: "base",
+    title: "base",
+    children: [
+      { value: "leaf1", title: "leaf1" },
+      { value: "leaf2", title: "leaf2" },
+    ],
+  }
 ];
 
 const meta = {

@@ -16,7 +16,7 @@ const Content = styled.div`
   display: flex;
   gap: 5px;
   align-items: center;
-  margin: 5px 0;
+  height: 30px;
   cursor: pointer;
 `;
 
@@ -37,9 +37,9 @@ export const Directory = ({
   const previous = usePrevious(isOpen);
 
   const onClick = () => {
-    item.onClick && item.onClick();
-    onChange(item.value);
     setIsOpen(!isOpen);
+    onChange(item.value);
+    item.onClick && item.onClick();
   };
 
   const [ref, { height: viewHeight }] = useMeasure();

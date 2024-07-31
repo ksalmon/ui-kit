@@ -6,7 +6,7 @@ const Content = styled.div`
   display: flex;
   gap: 5px;
   align-items: center;
-  margin: 5px 0;
+  height: 30px;
   cursor: pointer;
 `;
 

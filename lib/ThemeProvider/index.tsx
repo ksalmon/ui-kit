@@ -33,7 +33,6 @@ export const UIThemeProvider = ({ children, themeOverride }: Props) => (
         body {
           font-family: "Inter", sans-serif;
           margin: 0;
-          padding: 0;
         }
 
         input {
